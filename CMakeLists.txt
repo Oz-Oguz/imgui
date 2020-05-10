@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(imgui VERSION 4.6 LANGUAGES C)
 
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+# set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 #--------------------------------------------------------------------
 # Add subdirectories
@@ -24,5 +24,7 @@ add_library(imgui STATIC
 )
 
 target_compile_options(imgui PRIVATE -fPIC)
+# target_compile_definitions(imgui PUBLIC IMGUI_API="__declspec(dllexport)")
+# target_compile_definitions(imgui PUBLIC IMGUI_API="__attribute__((visibility("default")))")
 
 target_include_directories(imgui PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
